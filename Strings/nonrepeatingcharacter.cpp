@@ -5,6 +5,7 @@ using namespace std;
 
 // } Driver Code Ends
 
+
 class Solution
 {
     public:
@@ -12,33 +13,19 @@ class Solution
     char nonrepeatingCharacter(string S)
     {
        map<char,int> m;
-       map<char,int> p;
        
        for(int i=0;i<S.size();i++)
        {
            m[S[i]]++;
-           if(m[S[i]]>1) p.erase(S[i]);
-           else
-           {
-               p[S[i]]=i;
-           }
+         
        }
        
-       int min=S.size();
-       
-       for(auto &x: p)
+       for(int i=0;i<S.size();i++)
        {
-           if(x.second<min) min=x.second;
-           
+        if(m[S[i]]==1) return S[i];
        }
        
-       if(min==S.size()) return '$';
-       
-       return S[min];
-       
-       
-       
-       
+       return '$';
     }
 
 };
